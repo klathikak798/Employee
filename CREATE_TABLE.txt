@@ -1,0 +1,21 @@
+create database Employee
+use Employee
+CREATE TABLE Empl(
+employee_id INT PRIMARY KEY,
+ name VARCHAR(10) NOT NULL,
+ department VARCHAR(40) NOT NULL,
+ experience VARCHAR(60) NOT NULL);
+ INSERT INTO Empl(employee_id,name,department,experience) VALUES
+ (354,'kavi','Cyber Security',1),
+(122,'suriya','Computer Science',2),
+(170,'hari','Information Technology',3),
+(175,'sasi','Computer Science',3);
+SELECT*FROM Empl;
+UPDATE Empl
+SET name='eswari',
+department='CSE',
+year=4 WHERE Empl_id=130;
+
+SELECT*FROM Empl;
+ALTER TABLE Empl
+ADD Salary_num VARCHAR(10);
