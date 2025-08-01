@@ -1,0 +1,72 @@
+create database st
+use St
+CREATE TABLE stud(
+reg_no INT PRIMARY KEY,
+name VARCHAR(20) NOT NULL,
+department VARCHAR(40) NOT NULL,
+YEAR INT NOT NULL);
+INSERT INTO stud(reg_no,name,department,year) VALUES
+(111,'XXX','Computer Science',4),
+(122,'yyy','AI&DS',3),
+(124,'ZZZ','Information Technology',3),
+(130,'abc','Cyper Security',1); 
+
+UPDATE stud
+SET name='LATHIKA',
+department='CSE',
+year=3 WHERE reg_no=122;
+
+INSERT INTO stud(reg_no,name,department,year)
+VALUES (145,'sdft','MSC CS',2);
+SELECT *   FROM stud;
+
+ALTER TABLE stud
+ADD phone_num VARCHAR(13);
+UPDATE stud
+ SET  phone_num ='8220811565' WHERE reg_no=111;
+UPDATE  stud
+SET phone_num='2345678990' WHERE reg_no =122;
+UPDATE Stud
+SET phone_num ='2345677890' WHERE reg_no =124;
+UPDATE  stud
+SET phone_num='2345678990' WHERE reg_no =130;
+UPDATE Stud
+SET phone_num ='2345677890' WHERE reg_no =145;
+
+SELECT COUNT(*) AS tot_student FROM stud;
+SELECT MAX(YEAR) AS max_yr FROM stud;
+SELECT MIN(YEAR) AS min_yr FROM stud;
+SELECT AVG(YEAR) AS av_yr FROM stud;
+SELECT department,COUNT(*) AS dept_count FROM stud GROUP BY de             partment;
+SELECT department,MAX(year) AS max_yr FROM Stud
+GROUP BY department;
+
+SELECT * FROM Stud
+ORDER BY year ASC;
+SELECT * FROM Stud
+ORDER BY name;
+SELECT * FROM Stud
+ORDER BY department DESC;
+
+SELECT UPPER(department) AS dep_upr FROM Stud;
+SELECT UPPER(name) AS name_up FROM Stud;
+SELECT LOWER(name) AS nmae_up FROM Stud;
+SELECT LEFT(name,2) AS srt FROM Stud;
+SELECT name,LENGTH(name) AS name_ln FROM Stud; 
+SELECT CONCAT(name,' - ',department)AS combine FROM Stud;
+SELECT name,year,year+1 AS nx_yr FROM Stud;
+SELECT reg_no,MOD(reg_no,2) AS odr FROM Stud;
+
+ALTER TABLE Stud
+ADD Date_Detail DATE;
+
+SELECT * FROM Stud;
+UPDATE Stud SET Date_Detail='2023-10-23' WHERE reg_no =111;
+UPDATE Stud SET Date_Detail='2023-10-23' WHERE reg_no =122;
+UPDATE Stud SET Date_Detail='2023-10-23' WHERE reg_no =124;
+UPDATE Stud SET Date_Detail='2023-10-23' WHERE reg_no =130;
+UPDATE Stud SET Date_Detail='2023-10-23' WHERE reg_no =145;
+
+SELECT CURDATE();
+SELECT CURTIME();
+SELECT reg_no,name,year(Date_Detail) AS yr FROM Stud;
